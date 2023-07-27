@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE", "StudentExamPracticeBE.csproj", "{865CDA9C-7AA7-4B8C-B07E-DE184656BCB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE", "StudentExamPracticeBE\StudentExamPracticeBE.csproj", "{DDEA99E0-73E0-4ACF-B9E7-2F6D7E26985E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2B371581-32FD-4DAA-9B65-5923D7CD28A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationServices", "ApplicationServices", "{C2BEE901-275F-4E09-BF88-605170DAFAB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{98F21B2E-E5CA-425E-B12D-4AADBF5437DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.Domain", "StudentExamPracticeBE.Domain\StudentExamPracticeBE.Domain.csproj", "{8AB34CEE-0261-4E33-A30A-A67BD2910CFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.Abstractions", "StudentExamPracticeBE.Abstractions\StudentExamPracticeBE.Abstractions.csproj", "{B391E1F4-273E-4707-9D17-02BD6E1844FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +21,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{865CDA9C-7AA7-4B8C-B07E-DE184656BCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{865CDA9C-7AA7-4B8C-B07E-DE184656BCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{865CDA9C-7AA7-4B8C-B07E-DE184656BCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{865CDA9C-7AA7-4B8C-B07E-DE184656BCB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEA99E0-73E0-4ACF-B9E7-2F6D7E26985E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEA99E0-73E0-4ACF-B9E7-2F6D7E26985E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEA99E0-73E0-4ACF-B9E7-2F6D7E26985E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEA99E0-73E0-4ACF-B9E7-2F6D7E26985E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA} = {2B371581-32FD-4DAA-9B65-5923D7CD28A0}
+		{B391E1F4-273E-4707-9D17-02BD6E1844FB} = {2B371581-32FD-4DAA-9B65-5923D7CD28A0}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E5534F91-860A-4798-B357-084E81C3DBC0}
+		SolutionGuid = {1F573FE9-348C-4A81-B6CD-22D9D5B6A5E0}
 	EndGlobalSection
 EndGlobal
