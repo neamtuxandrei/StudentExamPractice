@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.Abstractions", "StudentExamPracticeBE.Abstractions\StudentExamPracticeBE.Abstractions.csproj", "{B391E1F4-273E-4707-9D17-02BD6E1844FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.DataAccess", "StudentExamPracticeBE.DataAccess\StudentExamPracticeBE.DataAccess.csproj", "{7FAB7CB9-E81A-463C-8300-D0830D24718C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentExamPracticeBE.ApplicationServices", "StudentExamPracticeBE.ApplicationServices\StudentExamPracticeBE.ApplicationServices.csproj", "{42556307-8612-4759-8523-4866FCB8EE97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B391E1F4-273E-4707-9D17-02BD6E1844FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAB7CB9-E81A-463C-8300-D0830D24718C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAB7CB9-E81A-463C-8300-D0830D24718C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAB7CB9-E81A-463C-8300-D0830D24718C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAB7CB9-E81A-463C-8300-D0830D24718C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42556307-8612-4759-8523-4866FCB8EE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42556307-8612-4759-8523-4866FCB8EE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42556307-8612-4759-8523-4866FCB8EE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42556307-8612-4759-8523-4866FCB8EE97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,6 +52,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8AB34CEE-0261-4E33-A30A-A67BD2910CFA} = {2B371581-32FD-4DAA-9B65-5923D7CD28A0}
 		{B391E1F4-273E-4707-9D17-02BD6E1844FB} = {2B371581-32FD-4DAA-9B65-5923D7CD28A0}
+		{7FAB7CB9-E81A-463C-8300-D0830D24718C} = {98F21B2E-E5CA-425E-B12D-4AADBF5437DA}
+		{42556307-8612-4759-8523-4866FCB8EE97} = {C2BEE901-275F-4E09-BF88-605170DAFAB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F573FE9-348C-4A81-B6CD-22D9D5B6A5E0}
