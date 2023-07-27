@@ -22,9 +22,14 @@ jobs:
       with:
         node-version: 16
         
-    - name: Install dependencies and build
+    - name: Install dependencies
       working-directory: StudentExamPracticeFE
-      run: |
-        npm install
-        npm run build  
-        npm test
+      run: npm ci
+      
+    - name: Build
+      working-directory: StudentExamPracticeFE
+      run: npm run build
+      
+    - name: Test
+      working-directory: StudentExamPracticeFE
+      run: npm test
