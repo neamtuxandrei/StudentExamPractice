@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentExamPracticeBE.Abstractions;
 using StudentExamPracticeBE.Data;
+using StudentExamPracticeBE.DataAccess;
 
 namespace StudentExamPracticeBE
 {
@@ -16,8 +18,17 @@ namespace StudentExamPracticeBE
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+            builder.Services.AddDbContext<StudentDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
