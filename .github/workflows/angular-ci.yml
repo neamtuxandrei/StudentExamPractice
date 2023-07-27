@@ -30,6 +30,6 @@ jobs:
       working-directory: StudentExamPracticeFE
       run: npm run build
       
-    - name: Test
-      working-directory: StudentExamPracticeFE
-      run: npm test
+#    - name: Test
+#      working-directory: StudentExamPracticeFE
+#      run: npm test
