@@ -23,7 +23,7 @@ jobs:
         node-version: 16
         
     - name: Install dependencies and build
-      working-directory: frontend
+      working-directory: StudentExamPracticeFE
       run: |
         npm install
         npm run build  
