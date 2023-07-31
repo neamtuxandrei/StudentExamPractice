@@ -45,6 +45,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: gh-pages
-          build_dir: ${{env.working-directory}}/dist/StudentExamPracticeFE
+          build_dir: ${{env.working-directory}}/dist/student-exam-practice-fe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
