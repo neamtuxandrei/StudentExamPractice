@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false",
-    "build:prod": "ng build --base-href=https://neamtuxandrei.github.io/StudentExamPractice",
+    "build:prod": "ng build --base-href=https://neamtuxandrei.github.io/StudentExamPractice/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
