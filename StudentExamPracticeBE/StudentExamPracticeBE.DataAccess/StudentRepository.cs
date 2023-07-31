@@ -1,4 +1,5 @@
-﻿using StudentExamPracticeBE.Abstractions;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentExamPracticeBE.Abstractions;
 using StudentExamPracticeBE.Domain;
 using System;
 using System.Collections.Generic;
@@ -15,31 +16,38 @@ namespace StudentExamPracticeBE.DataAccess
         {
             _context = context;
         }
-        public void AddTaskToStudent(ExamTask task,Guid studentId)
-        {
-            var student = _context.Students.Where(std => std.Id.Equals(studentId)).First();
-            student.AddTask(task.Title,task.Description,task.Status);
-            _context.SaveChanges();
-        }
 
-        public void DeleteTask(Guid id)
+        public Task<List<Student>> GetAllStudents()
         {
-            var task = _context.Students.Where(ts => ts.Id.Equals(id))
-                .First();
-            _context.Students.Remove(task);
-            _context.SaveChanges();
+            return _context.Students.Include(task => task.Tasks).ToListAsync();
+        }
+        public Task SaveChanges()
+        {
+            return _context.SaveChangesAsync();
+        }
+        public void AddStudent(Student student)
+        {
+            _context.Students.Add(student);
         }
 
         public Student GetStudentById(Guid id)
         {
-            var student = _context.Students.Where(st => st.Id.Equals(id)).First();
+            var student = _context.Students.Include(task => task.Tasks).First(std => std.Id == id);
             return student;
         }
 
-        public IEnumerable<ExamTask> GetTasksForStudent(Guid studentId)
+        public void RemoveStudent(Student student)
         {
-            var student = _context.Students.Where(st => st.Id.Equals(studentId)).First();
-            return student.Tasks.AsEnumerable();
+           _context.Students.Remove(student);
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            _context.Update(student);
+        }
+        public Task<Student?> GetFirstOrDefault(System.Linq.Expressions.Expression<Func<Student, bool>> filter)
+        {
+            return _context.Students.Where(filter).FirstOrDefaultAsync();
         }
     }
 }

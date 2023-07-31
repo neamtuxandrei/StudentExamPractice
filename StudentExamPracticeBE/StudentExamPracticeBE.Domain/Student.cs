@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
@@ -10,6 +11,7 @@ namespace StudentExamPracticeBE.Domain
 {
     public class Student : Person
     {
+        [Key]
         public Guid Id { get; private set; }
         private List<ExamTask> _tasks = new List<ExamTask>();
         public ICollection<ExamTask> Tasks => _tasks;
@@ -20,14 +22,15 @@ namespace StudentExamPracticeBE.Domain
         public static Student Create(string firstName, string lastName, string emailAddress)
         {
             Student student = new Student();
+            student.Id = Guid.NewGuid();
             student.SetName(firstName, lastName);
             student.SetEmailAddress(emailAddress);
             return student;
 
         }
-        public void AddTask(string name, string description, string status)
+        public void AddTask(string title, string description, string status)
         {
-            var task = ExamTask.Create(name, description, status);
+            var task = ExamTask.Create(title, description, status);
             _tasks.Add(task);
         }
         public void RemoveTask(Guid itemToRemove)
