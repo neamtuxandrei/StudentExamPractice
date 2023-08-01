@@ -11,7 +11,8 @@ const PROXY_CONFIG = [
       "/Identity",
       "/connect",
       "/ApplyDatabaseMigrations",
-      "/_framework"
+      "/_framework",
+      "/signin-google"
    ],
     proxyTimeout: 10000,
     target: target,
