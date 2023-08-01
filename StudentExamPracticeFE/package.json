@@ -2,6 +2,7 @@
   "name": "studentexampracticebe",
   "version": "0.0.0",
   "scripts": {
+    "deploy": "npx angular-cli-ghpages --dir=dist",
     "ng": "ng",
     "prestart": "node aspnetcore-https",
     "start": "run-script-os",
@@ -43,6 +44,7 @@
     "@types/jasmine": "~4.3.1",
     "@types/jasminewd2": "~2.0.10",
     "@types/node": "^18.16.3",
+    "angular-cli-ghpages": "^0.6.2",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
