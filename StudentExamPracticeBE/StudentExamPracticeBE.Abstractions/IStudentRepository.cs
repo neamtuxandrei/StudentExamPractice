@@ -10,11 +10,13 @@ namespace StudentExamPracticeBE.Abstractions
     public interface IStudentRepository
     {
         Task<List<Student>> GetAllStudents();
-        Task SaveChanges();
+        Task<bool> SaveChangesAsync();
         void AddStudent(Student student);
-        Student GetStudentById(Guid id);
+        Task<Student?> GetStudentById(Guid id);
+        Task<Student?> GetStudentByEmail(string email);
+        bool StudentExists(string email);
         void RemoveStudent(Student student);
         void UpdateStudent(Student student);
-        Task<Student?> GetFirstOrDefault(System.Linq.Expressions.Expression<Func<Student, bool>> filter);
+
     }
 }

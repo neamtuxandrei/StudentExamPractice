@@ -12,12 +12,15 @@ namespace StudentExamPracticeBE.ApplicationServices
             _studentRepository = studentRepository;
         }
 
-        public async Task DeleteById(Guid id)
+        public void DeleteStudent(Student student)
         {
-            var student = _studentRepository.GetStudentById(id) ?? throw new Exception("Student not found");
             _studentRepository.RemoveStudent(student);
-            await _studentRepository.SaveChanges();
             // log : deleted student with id: {id} 
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _studentRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Student>> GetAllStudents()
@@ -26,24 +29,27 @@ namespace StudentExamPracticeBE.ApplicationServices
             return students;
         }
 
-        public Student GetStudent(Guid id)
+        public async Task<Student?> GetStudentById(Guid id)
         {
-            var student = _studentRepository.GetStudentById(id) ?? throw new Exception("Student not found");
+            var student = await _studentRepository.GetStudentById(id);
+            return student;
+        }
+        public async Task<Student?> GetStudentByEmail(string email)
+        {
+            var student = await _studentRepository.GetStudentByEmail(email);
             return student;
         }
 
-        public async Task InsertStudent(string firstName,string lastName,string emailAddress,IEnumerable<ExamTask> tasks)
+        public void InsertStudent(string firstName, string lastName, string emailAddress, IEnumerable<ExamTask> tasks)
         {
-            var student = await _studentRepository.GetFirstOrDefault(i => i.EmailAddress.ToUpper() == emailAddress.ToUpper());
-            if (student is not null) throw new Exception("Student already exists");
-
+            if (_studentRepository.StudentExists(emailAddress))
+                throw new Exception("Student already exists");
             var studentToInsert = Student.Create(firstName, lastName, emailAddress);
-            foreach(var task in tasks)
+            foreach (var task in tasks)
             {
-                studentToInsert.AddTask(task.Title, task.Description, task.Status);
+                studentToInsert.AddTask(task.Title, task.Description);
             }
             _studentRepository.AddStudent(studentToInsert);
-            await _studentRepository.SaveChanges();
             // log : inserted student with id ... 
         }
     }

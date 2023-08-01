@@ -28,9 +28,9 @@ namespace StudentExamPracticeBE.Domain
             return student;
 
         }
-        public void AddTask(string title, string description, string status)
+        public void AddTask(string title, string description)
         {
-            var task = ExamTask.Create(title, description, status);
+            var task = ExamTask.Create(title, description);
             _tasks.Add(task);
         }
         public void RemoveTask(Guid itemToRemove)

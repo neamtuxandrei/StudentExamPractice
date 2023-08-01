@@ -21,18 +21,27 @@ namespace StudentExamPracticeBE.DataAccess
         {
             return _context.Students.Include(task => task.Tasks).ToListAsync();
         }
-        public Task SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
-            return _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() > 0;
         }
         public void AddStudent(Student student)
         {
             _context.Students.Add(student);
         }
 
-        public Student GetStudentById(Guid id)
+        public async Task<Student?> GetStudentById(Guid id)
         {
-            var student = _context.Students.Include(task => task.Tasks).First(std => std.Id == id);
+            var student = await _context.Students.Include(task => task.Tasks)
+                .Where(i=> i.Id == id)
+                .FirstOrDefaultAsync();
+            return student;
+        }
+        public async Task<Student?> GetStudentByEmail(string email)
+        {
+            var student = await _context.Students.Include(task => task.Tasks)
+                .Where(e=> e.EmailAddress == email)
+                .FirstOrDefaultAsync();
             return student;
         }
 
@@ -45,9 +54,12 @@ namespace StudentExamPracticeBE.DataAccess
         {
             _context.Update(student);
         }
-        public Task<Student?> GetFirstOrDefault(System.Linq.Expressions.Expression<Func<Student, bool>> filter)
+        public bool StudentExists(string email)
         {
-            return _context.Students.Where(filter).FirstOrDefaultAsync();
+            var exists = _context.Students.FirstOrDefault(std => std.EmailAddress.ToUpper() == email.ToUpper());
+            if (exists is null)
+                return false;
+            return true;
         }
     }
 }

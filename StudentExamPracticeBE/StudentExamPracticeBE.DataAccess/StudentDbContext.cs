@@ -44,9 +44,9 @@ namespace StudentExamPracticeBE.DataAccess
             #endregion
 
             #region tasks
-            var task1 = ExamTask.Create("Quicksort", "Efectuare comparatii pentru a sorta n elemente", "Created");
-            var task2 = ExamTask.Create("BubbleSort", "Parcurge in mod repetat lista element cu element comparand cu precedentul", "Created");
-            var task3 = ExamTask.Create("OOP design", "Creati 3 clase respectand principiile OOP.", "Created");
+            var task1 = ExamTask.Create("Quicksort", "Efectuare comparatii pentru a sorta n elemente");
+            var task2 = ExamTask.Create("BubbleSort", "Parcurge in mod repetat lista element cu element comparand cu precedentul");
+            var task3 = ExamTask.Create("OOP design", "Creati 3 clase respectand principiile OOP.");
 
             var taskList = new List<ExamTask>() { task1, task2, task3 };
             #endregion

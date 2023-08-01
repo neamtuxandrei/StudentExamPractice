@@ -20,9 +20,9 @@ namespace StudentExamPracticeBE.Domain
         public ICollection<Student> Students => _students;
         private ExamTask()
         {
-            
+
         }
-        public static ExamTask Create(string title,string description, string status)
+        public static ExamTask Create(string title, string description)
         {
             if (string.IsNullOrEmpty(title))
                 throw new ArgumentException("The name must not be empty", "firstName");
@@ -31,7 +31,6 @@ namespace StudentExamPracticeBE.Domain
             task.Title = title;
             task.Id = Guid.NewGuid();
             task.Description = description;
-            task.Status = status;
             return task;
         }
         public void AddStudent(string firstName, string lastName, string emailAddress)

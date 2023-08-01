@@ -9,9 +9,11 @@ namespace StudentExamPracticeBE.Abstractions
 {
     public interface IStudentService
     {
-        Student GetStudent(Guid id);
-        Task DeleteById(Guid id);
+        Task<Student?> GetStudentById(Guid id);
+        Task<Student?> GetStudentByEmail(string email);
+        void DeleteStudent(Student student);
         Task<IEnumerable<Student>> GetAllStudents();
-        Task InsertStudent(string firstName, string lastName, string emailAddress, IEnumerable<ExamTask> tasks);
+        void InsertStudent(string firstName, string lastName, string emailAddress, IEnumerable<ExamTask> tasks);
+        Task<bool> SaveChangesAsync();
     }
 }
