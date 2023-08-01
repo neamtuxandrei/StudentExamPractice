@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthorizeService } from './authorize.service';
+import { AuthorizeService } from '../../features/api-authorization/authorize.service';
 import { mergeMap } from 'rxjs/operators';
 
 @Injectable({

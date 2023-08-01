@@ -4,7 +4,7 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouterModule } from '@angular/router';
-import { ApplicationPaths } from './api-authorization.constants';
+import { ApplicationPaths } from '../../core/constants/api-authorization.constants';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
