@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './features/pages/home/home.component';
 import { CounterComponent } from './features/pages/counter/counter.component';
 import { FetchDataComponent } from './features/pages/fetch-data/fetch-data.component';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
+import { ApiAuthorizationModule } from 'src/app/features/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/app/core/guard/authorize.guard';
 import { AuthorizeInterceptor } from 'src/app/core/interceptors/authorize.interceptor';
 import { SharedModule } from './shared/shared.module';
