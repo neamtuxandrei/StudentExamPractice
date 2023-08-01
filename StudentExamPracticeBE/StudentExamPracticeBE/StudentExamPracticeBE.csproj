@@ -6,7 +6,7 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>../../StudentExamPracticeFE/</SpaRoot>
     <SpaProxyServerUrl>https://localhost:44470</SpaProxyServerUrl>
-    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+    <!-- <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand> -->
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
