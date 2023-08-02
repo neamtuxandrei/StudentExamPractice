@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User, UserManager } from 'oidc-client';
-import { BehaviorSubject, concat, from, Observable } from 'rxjs';
-import { filter, map, mergeMap, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, concat, from, Observable, of } from 'rxjs';
+import { catchError, filter, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
 import { ApplicationPaths, ApplicationName } from '../../core/constants/api-authorization.constants';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export type IAuthenticationResult =
   SuccessAuthenticationResult |
@@ -31,6 +33,7 @@ export enum AuthenticationResultStatus {
 
 export interface IUser {
   name?: string;
+  roles?: string[];
 }
 
 @Injectable({
@@ -39,13 +42,30 @@ export interface IUser {
 export class AuthorizeService {
   // By default pop ups are disabled because they don't work properly on Edge.
   // If you want to enable pop up authentication simply set this flag to false.
-
   private popUpDisabled = true;
   private userManager?: UserManager;
   private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
 
+  constructor(private http: HttpClient) { }
+
   public isAuthenticated(): Observable<boolean> {
     return this.getUser().pipe(map(u => !!u));
+  }
+  public hasRole(userRole: string): Observable<boolean> {
+    return this.getUser().pipe(
+      switchMap(user => {
+        if (!user || !user.name) {
+          return of(false);
+        }
+        return this.getUserRoles(user.name).pipe(
+          map(role => role.includes(userRole) ?? false),
+        );
+      })
+    );
+  }
+
+  public getUserRoles(email: string): Observable<string[]> {
+    return this.http.get<string[]>(environment.baseUrl + '/account?email=' + email);
   }
 
   public getUser(): Observable<IUser | null> {
