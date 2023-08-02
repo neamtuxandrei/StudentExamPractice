@@ -18,6 +18,7 @@ namespace StudentExamPracticeBE.Controllers
         }
 
         [HttpGet]
+        [Route("user/roles")]
         public async Task<ActionResult> GetUserRoles(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
