@@ -65,7 +65,7 @@ export class AuthorizeService {
   }
 
   public getUserRoles(email: string): Observable<string[]> {
-    return this.http.get<string[]>(environment.baseUrl + '/account?email=' + email);
+    return this.http.get<string[]>(environment.baseUrl + '/account/user/roles?email=' + email);
   }
 
   public getUser(): Observable<IUser | null> {
