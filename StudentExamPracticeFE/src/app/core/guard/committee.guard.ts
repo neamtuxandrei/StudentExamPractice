@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Observable, map } from 'rxjs';
 import { AuthorizeService } from 'src/app/features/api-authorization/authorize.service';
 
@@ -7,7 +8,9 @@ import { AuthorizeService } from 'src/app/features/api-authorization/authorize.s
   providedIn: 'root'
 })
 export class CommitteeGuard {
-  constructor(private authorizeService: AuthorizeService) { }
+  constructor(
+    private authorizeService: AuthorizeService,
+    private messageService: MessageService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -17,6 +20,7 @@ export class CommitteeGuard {
         if (hasCommitteeRole) {
           return true;
         } else {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Committee role is required for this operation.' });
           return false;
         }
       })

@@ -10,12 +10,13 @@ import { HomeComponent } from './features/pages/home/home.component';
 import { CounterComponent } from './features/pages/counter/counter.component';
 import { FetchDataComponent } from './features/pages/fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/app/features/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/app/core/guard/authorize.guard';
 import { AuthorizeInterceptor } from 'src/app/core/interceptors/authorize.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,11 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     FeaturesModule,
     AppRoutingModule,
+    ToastModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })
