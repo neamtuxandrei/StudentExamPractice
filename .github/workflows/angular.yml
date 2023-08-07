@@ -14,6 +14,7 @@ on:
       - develop2
     paths:
       - 'StudentExamPracticeFE/**'
+  workflow_dispatch:
       
 jobs:
   build-and-deploy:
