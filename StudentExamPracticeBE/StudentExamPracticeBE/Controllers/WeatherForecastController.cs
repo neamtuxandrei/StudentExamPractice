@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StudentExamPracticeBE.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
