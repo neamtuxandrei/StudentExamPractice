@@ -76,5 +76,14 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
+string filePath = "C:\\andrei2023\\projects\\softelligence\\StudentExamPractice\\test.csv";
+IStudentImporter importer = new StudentsCSVImporter();
+List<Student> students = importer.ImportStudents(filePath);
 
+// Now you have a list of Student objects to work with.
+foreach (Student student in students)
+{
+    // Access properties of each student object as needed.
+    Console.WriteLine($"{student.FirstName} {student.LastName}, Email: {student.EmailAddress}");
+}
 app.Run();
