@@ -12,7 +12,7 @@ namespace StudentExamPracticeBE.Abstractions
         Task<List<Student>> GetAllStudents();
         Task<bool> SaveChangesAsync();
         void AddStudent(Student student);
-        Task<Student?> GetStudentById(Guid id);
+        Student? GetStudentById(Guid id);
         Task<Student?> GetStudentByEmail(string email);
         bool StudentExists(string email);
         void RemoveStudent(Student student);

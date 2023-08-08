@@ -47,21 +47,21 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"),
+                            Id = new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"),
                             Description = "Efectuare comparatii pentru a sorta n elemente",
                             Status = "Created",
                             Title = "Quicksort"
                         },
                         new
                         {
-                            Id = new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"),
+                            Id = new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"),
                             Description = "Parcurge in mod repetat lista element cu element comparand cu precedentul",
                             Status = "Created",
                             Title = "BubbleSort"
                         },
                         new
                         {
-                            Id = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
+                            Id = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
                             Description = "Creati 3 clase respectand principiile OOP.",
                             Status = "Created",
                             Title = "OOP design"
@@ -93,70 +93,70 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61"),
+                            Id = new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5"),
                             EmailAddress = "neamtuandrei26@yahoo.com",
                             FirstName = "Andrei",
                             LastName = "Neamtu"
                         },
                         new
                         {
-                            Id = new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133"),
+                            Id = new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c"),
                             EmailAddress = "motoc212@yahoo.com",
                             FirstName = "Gabriel",
                             LastName = "Motoc"
                         },
                         new
                         {
-                            Id = new Guid("466daa7b-2238-4119-b133-c73fbc991f30"),
+                            Id = new Guid("7398dc1d-a056-4388-b6ce-7eae860d6ea7"),
                             EmailAddress = "vlad.lupu@gmail.com",
                             FirstName = "Vlad",
                             LastName = "Lupu"
                         },
                         new
                         {
-                            Id = new Guid("189752e7-0093-4497-9a75-9b6684a39aa6"),
+                            Id = new Guid("d34750a9-ae0d-4197-a118-6eb7adeed2a5"),
                             EmailAddress = "mihnea.sanda@gmail.com",
                             FirstName = "Mihnea",
                             LastName = "Sanda"
                         },
                         new
                         {
-                            Id = new Guid("1f2dc7e1-3a5d-43ba-9234-1c256f9f09d3"),
+                            Id = new Guid("a2b49aec-9851-4f84-a940-ca326b307e8b"),
                             EmailAddress = "dicu_aurel9@yahoo.com",
                             FirstName = "Aurel",
                             LastName = "Dicu"
                         },
                         new
                         {
-                            Id = new Guid("3c0250b0-4d43-420f-9dfc-c7ce4d890945"),
+                            Id = new Guid("3d92abb1-ad65-4a62-a46b-abce2e32c91c"),
                             EmailAddress = "ionescu@gmail.com",
                             FirstName = "Andrei",
                             LastName = "Ionescu"
                         },
                         new
                         {
-                            Id = new Guid("d26a3312-d30b-4419-b496-2608cd5ed504"),
+                            Id = new Guid("c3a457b0-aa56-4ea4-9759-fc0b8e5aef27"),
                             EmailAddress = "tonceamihai99@yahoo.com",
                             FirstName = "Mihai",
                             LastName = "Toncea"
                         },
                         new
                         {
-                            Id = new Guid("0dbd5e04-670c-4886-88f3-9659d1541965"),
+                            Id = new Guid("d15675d4-031b-4a7a-b6f9-9b2a32a315f5"),
                             EmailAddress = "anitaclaudiu@gmail.com",
                             FirstName = "Claudiu",
                             LastName = "Anita"
                         },
                         new
                         {
-                            Id = new Guid("0b1fff26-ebb9-405e-ba20-b401d22c9dbc"),
+                            Id = new Guid("0419bc13-75ef-418d-a685-595377a15df4"),
                             EmailAddress = "andrei89@yahoo.com",
                             FirstName = "Majon",
                             LastName = "Andrei"
                         },
                         new
                         {
-                            Id = new Guid("c9710c8a-72fb-40e7-b5bf-e94d8cbce9c3"),
+                            Id = new Guid("a80e6beb-4d15-4418-a0a3-0fee512e43c1"),
                             EmailAddress = "baranescu@yahoo.com",
                             FirstName = "Andrei",
                             LastName = "Baranescu"
@@ -180,63 +180,63 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            ExamTaskId = new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"),
-                            StudentId = new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61")
+                            ExamTaskId = new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"),
+                            StudentId = new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"),
-                            StudentId = new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61")
+                            ExamTaskId = new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"),
+                            StudentId = new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
-                            StudentId = new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61")
+                            ExamTaskId = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
+                            StudentId = new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"),
-                            StudentId = new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133")
+                            ExamTaskId = new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"),
+                            StudentId = new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
-                            StudentId = new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133")
+                            ExamTaskId = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
+                            StudentId = new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"),
-                            StudentId = new Guid("466daa7b-2238-4119-b133-c73fbc991f30")
+                            ExamTaskId = new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"),
+                            StudentId = new Guid("7398dc1d-a056-4388-b6ce-7eae860d6ea7")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"),
-                            StudentId = new Guid("189752e7-0093-4497-9a75-9b6684a39aa6")
+                            ExamTaskId = new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"),
+                            StudentId = new Guid("d34750a9-ae0d-4197-a118-6eb7adeed2a5")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
-                            StudentId = new Guid("1f2dc7e1-3a5d-43ba-9234-1c256f9f09d3")
+                            ExamTaskId = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
+                            StudentId = new Guid("a2b49aec-9851-4f84-a940-ca326b307e8b")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
-                            StudentId = new Guid("3c0250b0-4d43-420f-9dfc-c7ce4d890945")
+                            ExamTaskId = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
+                            StudentId = new Guid("3d92abb1-ad65-4a62-a46b-abce2e32c91c")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"),
-                            StudentId = new Guid("d26a3312-d30b-4419-b496-2608cd5ed504")
+                            ExamTaskId = new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"),
+                            StudentId = new Guid("c3a457b0-aa56-4ea4-9759-fc0b8e5aef27")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"),
-                            StudentId = new Guid("0dbd5e04-670c-4886-88f3-9659d1541965")
+                            ExamTaskId = new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"),
+                            StudentId = new Guid("d15675d4-031b-4a7a-b6f9-9b2a32a315f5")
                         },
                         new
                         {
-                            ExamTaskId = new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"),
-                            StudentId = new Guid("0b1fff26-ebb9-405e-ba20-b401d22c9dbc")
+                            ExamTaskId = new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"),
+                            StudentId = new Guid("0419bc13-75ef-418d-a685-595377a15df4")
                         });
                 });
 

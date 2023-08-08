@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StudentExamPracticeBE.ApplicationServices\StudentExamPracticeBE.ApplicationServices.csproj" />
     <ProjectReference Include="..\StudentExamPracticeBE.DataAccess\StudentExamPracticeBE.DataAccess.csproj" />
+    <ProjectReference Include="..\StudentExamPracticeBE.ImportMembers\StudentExamPracticeBE.ImportMembers.csproj" />
   </ItemGroup>
 
 </Project>

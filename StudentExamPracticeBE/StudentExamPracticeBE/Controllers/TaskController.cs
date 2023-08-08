@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentExamPracticeBE.Abstractions;
+using StudentExamPracticeBE.ApplicationServices;
+using StudentExamPracticeBE.Contracts.Requests.Students;
+using StudentExamPracticeBE.Contracts.Requests.Tasks;
 using StudentExamPracticeBE.Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudentExamPracticeBE.Controllers
 {
@@ -20,13 +24,13 @@ namespace StudentExamPracticeBE.Controllers
         [Route("{id}", Name = "GetTaskById")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ExamTask>> GetTask(Guid id)
+        public ActionResult<ExamTask> GetTask(Guid id)
         {
             if (id == Guid.Empty)
                 return BadRequest();
             try
             {
-                var task = await _taskService.GetTaskById(id);
+                var task = _taskService.GetTaskById(id);
                 if (task == null)
                     return NotFound("Task not found.");
                 return Ok(task);
@@ -54,39 +58,49 @@ namespace StudentExamPracticeBE.Controllers
         }
         // [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public async Task<IActionResult> Insert([FromBody] ExamTask taskToInsert)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Insert([FromBody] InsertTaskRequest request)
         {
-            if (taskToInsert is null)
-                return BadRequest("Student is null");
-            _taskService.InsertTask(taskToInsert.Title, taskToInsert.Description);
-            await _taskService.SaveChangesAsync();
-            var task = await _taskService.GetTaskByTitle(taskToInsert.Title);
-            return CreatedAtRoute("GetTaskById", new { id = task.Id }, task);
-
+            if (request is null)
+                return BadRequest("Task is null");
+            await _taskService.InsertTask(request.Title, request.Description);
+            return Ok();
         }
+
         //[Authorize(Roles = "Administrator")]
         [HttpDelete]
         [Route("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> RemoveTask(Guid id)
         {
             if (id == Guid.Empty)
                 return BadRequest();
             try
             {
-                var task = await _taskService.GetTaskById(id);
-                if (task == null)
-                    return NotFound("Task not found.");
-                _taskService.DeleteTask(task);
-                await _taskService.SaveChangesAsync();
+                await _taskService.RemoveTaskById(id);
                 return NoContent();
 
             }
             catch (Exception ex)
             {
                 return new ObjectResult(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("{id}/update", Name = "UpdateTask")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> EditTask(Guid id, [FromBody] UpdateTaskRequest request)
+        {
+            try
+            {
+                if (request is null) throw new ValidationException($"Request {typeof(UpdateTaskRequest)} is null");
+                await _taskService.UpdateTask(id, request.Title, request.Description);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(ex);
             }
         }
 

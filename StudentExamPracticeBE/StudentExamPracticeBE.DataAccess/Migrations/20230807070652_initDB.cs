@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StudentExamPracticeBE.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedData : Migration
+    public partial class initDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,9 +70,9 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                 columns: new[] { "Id", "Description", "Status", "Title" },
                 values: new object[,]
                 {
-                    { new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"), "Parcurge in mod repetat lista element cu element comparand cu precedentul", "Created", "BubbleSort" },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), "Creati 3 clase respectand principiile OOP.", "Created", "OOP design" },
-                    { new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"), "Efectuare comparatii pentru a sorta n elemente", "Created", "Quicksort" }
+                    { new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"), "Parcurge in mod repetat lista element cu element comparand cu precedentul", "Created", "BubbleSort" },
+                    { new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"), "Efectuare comparatii pentru a sorta n elemente", "Created", "Quicksort" },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), "Creati 3 clase respectand principiile OOP.", "Created", "OOP design" }
                 });
 
             migrationBuilder.InsertData(
@@ -80,16 +80,16 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                 columns: new[] { "Id", "EmailAddress", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { new Guid("0b1fff26-ebb9-405e-ba20-b401d22c9dbc"), "andrei89@yahoo.com", "Majon", "Andrei" },
-                    { new Guid("0dbd5e04-670c-4886-88f3-9659d1541965"), "anitaclaudiu@gmail.com", "Claudiu", "Anita" },
-                    { new Guid("189752e7-0093-4497-9a75-9b6684a39aa6"), "mihnea.sanda@gmail.com", "Mihnea", "Sanda" },
-                    { new Guid("1f2dc7e1-3a5d-43ba-9234-1c256f9f09d3"), "dicu_aurel9@yahoo.com", "Aurel", "Dicu" },
-                    { new Guid("3c0250b0-4d43-420f-9dfc-c7ce4d890945"), "ionescu@gmail.com", "Andrei", "Ionescu" },
-                    { new Guid("466daa7b-2238-4119-b133-c73fbc991f30"), "vlad.lupu@gmail.com", "Vlad", "Lupu" },
-                    { new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61"), "neamtuandrei26@yahoo.com", "Andrei", "Neamtu" },
-                    { new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133"), "motoc212@yahoo.com", "Gabriel", "Motoc" },
-                    { new Guid("c9710c8a-72fb-40e7-b5bf-e94d8cbce9c3"), "baranescu@yahoo.com", "Andrei", "Baranescu" },
-                    { new Guid("d26a3312-d30b-4419-b496-2608cd5ed504"), "tonceamihai99@yahoo.com", "Mihai", "Toncea" }
+                    { new Guid("0419bc13-75ef-418d-a685-595377a15df4"), "andrei89@yahoo.com", "Majon", "Andrei" },
+                    { new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5"), "neamtuandrei26@yahoo.com", "Andrei", "Neamtu" },
+                    { new Guid("3d92abb1-ad65-4a62-a46b-abce2e32c91c"), "ionescu@gmail.com", "Andrei", "Ionescu" },
+                    { new Guid("7398dc1d-a056-4388-b6ce-7eae860d6ea7"), "vlad.lupu@gmail.com", "Vlad", "Lupu" },
+                    { new Guid("a2b49aec-9851-4f84-a940-ca326b307e8b"), "dicu_aurel9@yahoo.com", "Aurel", "Dicu" },
+                    { new Guid("a80e6beb-4d15-4418-a0a3-0fee512e43c1"), "baranescu@yahoo.com", "Andrei", "Baranescu" },
+                    { new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c"), "motoc212@yahoo.com", "Gabriel", "Motoc" },
+                    { new Guid("c3a457b0-aa56-4ea4-9759-fc0b8e5aef27"), "tonceamihai99@yahoo.com", "Mihai", "Toncea" },
+                    { new Guid("d15675d4-031b-4a7a-b6f9-9b2a32a315f5"), "anitaclaudiu@gmail.com", "Claudiu", "Anita" },
+                    { new Guid("d34750a9-ae0d-4197-a118-6eb7adeed2a5"), "mihnea.sanda@gmail.com", "Mihnea", "Sanda" }
                 });
 
             migrationBuilder.InsertData(
@@ -97,18 +97,18 @@ namespace StudentExamPracticeBE.DataAccess.Migrations
                 columns: new[] { "ExamTaskId", "StudentId" },
                 values: new object[,]
                 {
-                    { new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"), new Guid("0b1fff26-ebb9-405e-ba20-b401d22c9dbc") },
-                    { new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"), new Guid("189752e7-0093-4497-9a75-9b6684a39aa6") },
-                    { new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"), new Guid("466daa7b-2238-4119-b133-c73fbc991f30") },
-                    { new Guid("9e727cee-e590-4a99-a6c6-8618824bdf56"), new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61") },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), new Guid("1f2dc7e1-3a5d-43ba-9234-1c256f9f09d3") },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), new Guid("3c0250b0-4d43-420f-9dfc-c7ce4d890945") },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61") },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133") },
-                    { new Guid("b6b1501c-9408-4d5f-94a6-5341fb2d269c"), new Guid("d26a3312-d30b-4419-b496-2608cd5ed504") },
-                    { new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"), new Guid("0dbd5e04-670c-4886-88f3-9659d1541965") },
-                    { new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"), new Guid("583b3dcc-1135-482f-a7a2-f2e7699b1b61") },
-                    { new Guid("b85c580d-c6fd-4ad9-86dd-bf6ca587915c"), new Guid("8e2df4ea-4825-4961-8c54-fe3e372b2133") }
+                    { new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"), new Guid("0419bc13-75ef-418d-a685-595377a15df4") },
+                    { new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"), new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5") },
+                    { new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"), new Guid("7398dc1d-a056-4388-b6ce-7eae860d6ea7") },
+                    { new Guid("1b14d474-287f-44b5-81bd-36b698a8f78b"), new Guid("d34750a9-ae0d-4197-a118-6eb7adeed2a5") },
+                    { new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"), new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5") },
+                    { new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"), new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c") },
+                    { new Guid("817e3ded-3c2d-43e6-80e1-24781180f6f5"), new Guid("d15675d4-031b-4a7a-b6f9-9b2a32a315f5") },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), new Guid("0945c332-c3dd-4e9d-abc6-b1337e30e3c5") },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), new Guid("3d92abb1-ad65-4a62-a46b-abce2e32c91c") },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), new Guid("a2b49aec-9851-4f84-a940-ca326b307e8b") },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), new Guid("b5106a05-3d90-4691-b482-c21c85d93f1c") },
+                    { new Guid("cc316902-a7f5-4da2-901b-f6d847a8590a"), new Guid("c3a457b0-aa56-4ea4-9759-fc0b8e5aef27") }
                 });
 
             migrationBuilder.CreateIndex(

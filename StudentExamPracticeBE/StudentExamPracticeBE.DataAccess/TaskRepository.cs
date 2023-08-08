@@ -30,36 +30,25 @@ namespace StudentExamPracticeBE.DataAccess
             _context.ExamTasks.Add(task);
         }
 
-        public async Task<ExamTask?> GetTaskById(Guid id)
+        public ExamTask? GetTaskById(Guid id)
         {
-            var task = await _context.ExamTasks
+            var task = _context.ExamTasks
                 .Where(i => i.Id == id)
-                .FirstOrDefaultAsync();
+                .FirstOrDefault();
             return task;
         }
-        public async Task<ExamTask?> GetTaskByTitle(string title)
-        {
-            var task = await _context.ExamTasks
-                .Where(e => e.Title == title)
-                .FirstOrDefaultAsync();
-            return task;
-        }
+      
 
         public void RemoveTask(ExamTask task)
         {
             _context.ExamTasks.Remove(task);
         }
 
+
         public void UpdateTask(ExamTask task)
         {
             _context.Update(task);
         }
-        public bool TaskExists(string title)
-        {
-            var exists = _context.ExamTasks.FirstOrDefault(std => std.Title.ToUpper() == title.ToUpper());
-            if (exists is null)
-                return false;
-            return true;
-        }
+       
     }
 }

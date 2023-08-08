@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using StudentExamPracticeBE.Abstractions;
-using StudentExamPracticeBE.ApplicationServices;
 using StudentExamPracticeBE.Data;
 using StudentExamPracticeBE.DataAccess;
 using StudentExamPracticeBE.DependencyInjection;
+using StudentExamPracticeBE.Domain;
+using StudentExamPracticeBE.ImportMembers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,4 +76,5 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
+
 app.Run();

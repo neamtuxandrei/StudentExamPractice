@@ -30,11 +30,11 @@ namespace StudentExamPracticeBE.DataAccess
             _context.Students.Add(student);
         }
 
-        public async Task<Student?> GetStudentById(Guid id)
+        public Student? GetStudentById(Guid id)
         {
-            var student = await _context.Students.Include(task => task.Tasks)
+            var student = _context.Students.Include(task => task.Tasks)
                 .Where(i=> i.Id == id)
-                .FirstOrDefaultAsync();
+                .FirstOrDefault();
             return student;
         }
         public async Task<Student?> GetStudentByEmail(string email)
@@ -50,6 +50,7 @@ namespace StudentExamPracticeBE.DataAccess
            _context.Students.Remove(student);
         }
 
+        
         public void UpdateStudent(Student student)
         {
             _context.Update(student);

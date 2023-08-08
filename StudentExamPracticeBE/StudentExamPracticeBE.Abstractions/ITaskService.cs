@@ -9,16 +9,12 @@ namespace StudentExamPracticeBE.Abstractions
 {
     public interface ITaskService
     {
-        public void DeleteTask(ExamTask task);
-
-        Task<bool> SaveChangesAsync();
-
+        Task UpdateTask(Guid id, string title, string description);
+        ExamTask GetTaskById(Guid id);
+        Task RemoveTaskById(Guid id);
         Task<IEnumerable<ExamTask>> GetAllTasks();
-
-        Task<ExamTask?> GetTaskById(Guid id);
-        Task<ExamTask?> GetTaskByTitle(string title);
-
-        void InsertTask(string title, string description);
+        Task InsertTask(string title, string description);
+        Task<bool> SaveChangesAsync();
 
 
     }

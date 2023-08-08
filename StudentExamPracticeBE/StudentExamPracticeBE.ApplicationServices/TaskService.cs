@@ -15,9 +15,13 @@ namespace StudentExamPracticeBE.ApplicationServices
         {
             _taskRepository = taskRepository;
         }
-        public void DeleteTask(ExamTask task)
+        public async Task RemoveTaskById(Guid id)
         {
+            var task = _taskRepository.GetTaskById(id);
+            if (task == null) throw new Exception("Task not found");
+
             _taskRepository.RemoveTask(task);
+            await _taskRepository.SaveChangesAsync();
             // log : deleted student with id: {id} 
         }
 
@@ -32,24 +36,35 @@ namespace StudentExamPracticeBE.ApplicationServices
             return tasks;
         }
 
-        public async Task<ExamTask?> GetTaskById(Guid id)
+        public ExamTask GetTaskById(Guid id)
         {
-            var task = await _taskRepository.GetTaskById(id);
+            var task = _taskRepository.GetTaskById(id);
+            if (task == null) throw new Exception("Task not found");
             return task;
         }
-        public async Task<ExamTask?> GetTaskByTitle(string title)
-        {
-            var task = await _taskRepository.GetTaskByTitle(title);
-            return task;
-        }
+        
 
-        public void InsertTask(string title, string description)
+        public async Task InsertTask(string title, string description)
         {
-            if (_taskRepository.TaskExists(title))
-                throw new Exception("Task already exists");
+
             var taskToInsert = ExamTask.Create(title, description);
             _taskRepository.AddTask(taskToInsert);
+            await _taskRepository.SaveChangesAsync();
+
             // log : inserted student with id ... 
+        }
+
+        public async Task UpdateTask(Guid id, string title, string description)
+        {
+            var task = _taskRepository.GetTaskById(id);
+            if (task is null) throw new Exception("Task doesn't exists");
+
+            task.Title = title;
+            task.Description = description;
+            _taskRepository.UpdateTask(task);
+            await _taskRepository.SaveChangesAsync();
+
+            // _logger.LogInformation($"Updated student with id: {id} ");
         }
     }
 }
