@@ -4,14 +4,17 @@ on:
     branches: 
       - master
       - develop
+      - develop2
     paths:
       - 'StudentExamPracticeFE/**'
   pull_request:
     branches:   
       - master
       - develop
+      - develop2
     paths:
       - 'StudentExamPracticeFE/**'
+  workflow_dispatch:
       
 jobs:
   build-and-deploy:
@@ -45,6 +48,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: gh-pages
-          build_dir: ${{env.working-directory}}/dist/student-exam-practice-fe
+          build_dir: ${{env.working-directory}}/dist/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
