@@ -1,0 +1,24 @@
+<div class="col-md-5">
+    <form [formGroup]="studentForm"></form>
+    <label>ID</label>
+    <div class="input-group mb-3">
+        <input [formControl]="studentForm.controls['id']" type="text" class="form-control" id="basic-url" 
+            aria-describedby="basic-addon3" readonly>
+    </div>
+    <label>First Name</label>
+    <div class="input-group mb-3">
+        <input [formControl]="studentForm.controls['firstName']" type="text" class="form-control" id="basic-url"
+            aria-describedby="basic-addon3">
+    </div>
+    <label>Last Name</label>
+    <div class="input-group mb-3">
+        <input [formControl]="studentForm.controls['lastName']" type="text" class="form-control" id="basic-url"
+            aria-describedby="basic-addon3">
+    </div>
+    <label>Email Address</label>
+    <div class="input-group mb-3">
+        <input [formControl]="studentForm.controls['emailAddress']" type="text" class="form-control" id="basic-url"
+            aria-describedby="basic-addon3">
+    </div>
+    <p-button label="Save" styleClass="p-button-success"></p-button>
+</div>

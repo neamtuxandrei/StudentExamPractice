@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminComponent } from './pages/admin/admin.component';
-import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
-
+import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
   declarations: [
-    AdminComponent
   ],
   imports: [
     CommonModule,
-    TableModule,
-    ButtonModule
+    AdminModule
   ]
 })
 export class FeaturesModule { }

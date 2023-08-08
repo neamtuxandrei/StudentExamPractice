@@ -27,6 +27,7 @@ import { MessageService } from 'primeng/api';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    AppRoutingModule, // import this before child router
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -34,7 +35,6 @@ import { MessageService } from 'primeng/api';
     SharedModule,
     CoreModule,
     FeaturesModule,
-    AppRoutingModule,
     ToastModule,
   ],
   providers: [

@@ -11,9 +11,13 @@ export class StudentService {
   url = environment.baseUrl;
   constructor(private http: HttpClient) {
 
-   }
+  }
 
-   getStudents(){
-    return this.http.get<Student[]>(this.url+"/student");
-   }
+  getStudents() {
+    return this.http.get<Student[]>(this.url + "/student");
+  }
+
+  getStudent(id: string) {
+    return this.http.get<Student>(this.url + "/student/" + id);
+  }
 }
