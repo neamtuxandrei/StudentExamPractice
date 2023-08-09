@@ -20,5 +20,5 @@
         <input [formControl]="studentForm.controls['emailAddress']" type="text" class="form-control" id="basic-url"
             aria-describedby="basic-addon3">
     </div>
-    <p-button label="Save" styleClass="p-button-success"></p-button>
+    <p-button label="Save" styleClass="p-button-success" (onClick)="saveStudent()"></p-button>
 </div>

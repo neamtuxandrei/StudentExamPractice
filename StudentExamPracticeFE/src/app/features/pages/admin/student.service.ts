@@ -24,4 +24,8 @@ export class StudentService {
   deleteStudent(id: string) {
     return this.http.delete(this.url + "/student/" + id);
   }
+
+  editStudent(id: any, values: any){
+    return this.http.put(this.url + "/student/" + id, values);
+  }
 }

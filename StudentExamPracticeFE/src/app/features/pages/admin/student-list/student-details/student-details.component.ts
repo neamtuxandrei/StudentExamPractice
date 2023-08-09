@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../../student.service';
 import { Student } from 'src/app/shared/models/student';
 
@@ -21,7 +21,8 @@ export class StudentDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) {
   }
 
@@ -39,5 +40,13 @@ export class StudentDetailsComponent implements OnInit {
         }
       })
     }
+  }
+
+  saveStudent(){
+    this.studentService.editStudent(this.student?.id, this.studentForm.value).subscribe(
+      () => {
+        this.router.navigate(["admin"]);
+      }
+    );
   }
 }
