@@ -1,4 +1,4 @@
-<p-button label="Add Student" styleClass="p-button-sm p-button-success" routerLink="student/add"></p-button>
+<p-button label="Add Student" styleClass="p-button-sm p-button-success" routerLink="add"></p-button>
 <div class="my-2">
     <p-table class="mb-3" [value]="students" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
@@ -17,7 +17,7 @@
                 <td>{{ student.emailAddress }}</td>
                 <td>
                     <p-button label="Delete" styleClass="p-button-sm p-button-danger" (onClick)="deleteStudent(student.id)"></p-button>
-                    <p-button class="ms-1" label="Edit" styleClass="p-button-sm p-button-warning" routerLink="student/{{student.id}}"></p-button>
+                    <p-button class="ms-1" label="Edit" styleClass="p-button-sm p-button-warning" routerLink="{{student.id}}"></p-button>
                 </td>
             </tr>
         </ng-template>
