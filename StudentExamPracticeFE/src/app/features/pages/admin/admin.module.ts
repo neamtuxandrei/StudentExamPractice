@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { StudentAddComponent } from './student-list/student-add/student-add.component';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     AdminComponent,
     StudentListComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    StudentAddComponent
   ],
   imports: [
     CommonModule,

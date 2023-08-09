@@ -28,4 +28,8 @@ export class StudentService {
   editStudent(id: any, values: any){
     return this.http.put(this.url + "/student/" + id, values);
   }
+
+  addStudent(id: any, values: any){
+    return this.http.post(this.url + "/student/" + id, values);
+  }
 }
