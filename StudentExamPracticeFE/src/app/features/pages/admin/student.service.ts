@@ -20,4 +20,8 @@ export class StudentService {
   getStudent(id: string) {
     return this.http.get<Student>(this.url + "/student/" + id);
   }
+
+  deleteStudent(id: string) {
+    return this.http.delete(this.url + "/student/" + id);
+  }
 }

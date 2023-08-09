@@ -16,7 +16,7 @@
                 <td>{{ student.lastName }}</td>
                 <td>{{ student.emailAddress }}</td>
                 <td>
-                    <p-button label="Delete" styleClass="p-button-sm p-button-danger"></p-button>
+                    <p-button label="Delete" styleClass="p-button-sm p-button-danger" (onClick)="deleteStudent(student.id)"></p-button>
                     <p-button class="ms-1" label="Edit" styleClass="p-button-sm p-button-warning" routerLink="student/{{student.id}}"></p-button>
                 </td>
             </tr>
