@@ -22,7 +22,6 @@ namespace StudentExamPracticeBE.ApplicationServices
 
             _taskRepository.RemoveTask(task);
             await _taskRepository.SaveChangesAsync();
-            // log : deleted student with id: {id} 
         }
 
         public async Task<bool> SaveChangesAsync()
@@ -42,7 +41,7 @@ namespace StudentExamPracticeBE.ApplicationServices
             if (task == null) throw new Exception("Task not found");
             return task;
         }
-        
+
 
         public async Task InsertTask(string title, string description)
         {
@@ -50,8 +49,6 @@ namespace StudentExamPracticeBE.ApplicationServices
             var taskToInsert = ExamTask.Create(title, description);
             _taskRepository.AddTask(taskToInsert);
             await _taskRepository.SaveChangesAsync();
-
-            // log : inserted student with id ... 
         }
 
         public async Task UpdateTask(Guid id, string title, string description)
@@ -63,8 +60,6 @@ namespace StudentExamPracticeBE.ApplicationServices
             task.Description = description;
             _taskRepository.UpdateTask(task);
             await _taskRepository.SaveChangesAsync();
-
-            // _logger.LogInformation($"Updated student with id: {id} ");
         }
     }
 }

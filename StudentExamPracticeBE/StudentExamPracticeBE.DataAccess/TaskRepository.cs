@@ -16,7 +16,6 @@ namespace StudentExamPracticeBE.DataAccess
         {
             _context = context;
         }
-
         public Task<List<ExamTask>> GetAllTasks()
         {
             return _context.ExamTasks.ToListAsync();
@@ -29,7 +28,6 @@ namespace StudentExamPracticeBE.DataAccess
         {
             _context.ExamTasks.Add(task);
         }
-
         public ExamTask? GetTaskById(Guid id)
         {
             var task = _context.ExamTasks
@@ -37,18 +35,13 @@ namespace StudentExamPracticeBE.DataAccess
                 .FirstOrDefault();
             return task;
         }
-      
-
         public void RemoveTask(ExamTask task)
         {
             _context.ExamTasks.Remove(task);
         }
-
-
         public void UpdateTask(ExamTask task)
         {
             _context.Update(task);
         }
-       
     }
 }

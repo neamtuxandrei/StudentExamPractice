@@ -19,7 +19,6 @@ namespace StudentExamPracticeBE.ApplicationServices
 
             _studentRepository.RemoveStudent(student);
             await _studentRepository.SaveChangesAsync();
-            // log : deleted student with id: {id} 
         }
 
         public async Task<bool> SaveChangesAsync()
@@ -52,13 +51,11 @@ namespace StudentExamPracticeBE.ApplicationServices
             var studentToInsert = Student.Create(firstName, lastName, emailAddress);
             _studentRepository.AddStudent(studentToInsert);
             await _studentRepository.SaveChangesAsync();
-
-            // log : inserted student with id ... 
         }
 
-        public async Task UpdateStudent(Guid id, string firstName, string lastName,string emailAddress)
+        public async Task UpdateStudent(Guid id, string firstName, string lastName, string emailAddress)
         {
-            var student =  _studentRepository.GetStudentById(id);
+            var student = _studentRepository.GetStudentById(id);
             if (student is null) throw new Exception("Student doesn't exists");
 
             student.FirstName = firstName;
@@ -66,8 +63,6 @@ namespace StudentExamPracticeBE.ApplicationServices
             student.EmailAddress = emailAddress;
             _studentRepository.UpdateStudent(student);
             await _studentRepository.SaveChangesAsync();
-
-            // _logger.LogInformation($"Updated student with id: {id} ");
         }
     }
 }

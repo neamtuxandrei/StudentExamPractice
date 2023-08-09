@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using StudentExamPracticeBE.Abstractions;
 using StudentExamPracticeBE.Data;
 using StudentExamPracticeBE.DataAccess;
 using StudentExamPracticeBE.DependencyInjection;
-using StudentExamPracticeBE.Domain;
-using StudentExamPracticeBE.ImportMembers;
 
 var builder = WebApplication.CreateBuilder(args);
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -76,14 +74,13 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
-string filePath = "C:\\andrei2023\\projects\\softelligence\\StudentExamPractice\\test.csv";
-IStudentImporter importer = new StudentsCSVImporter();
-List<Student> students = importer.ImportStudents(filePath);
+// TEST IMPORTERS
+//string filePath = "F:\\projects\\softelligence\\demoProjects\\StudentExamPractice\\TestExcel.xlsx";
+//IStudentImporter importer = new StudentExcelImporter();
+//List<Student> students = importer.ImportStudents(filePath);
 
-// Now you have a list of Student objects to work with.
-foreach (Student student in students)
-{
-    // Access properties of each student object as needed.
-    Console.WriteLine($"{student.FirstName} {student.LastName}, Email: {student.EmailAddress}");
-}
+//foreach (Student student in students)
+//{
+//    Console.WriteLine($"{student.FirstName} {student.LastName}, Email: {student.EmailAddress}");
+//}
 app.Run();

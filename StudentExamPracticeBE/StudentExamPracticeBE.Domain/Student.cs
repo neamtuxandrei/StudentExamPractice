@@ -39,7 +39,5 @@ namespace StudentExamPracticeBE.Domain
                 .First();
             _tasks.Remove(taskFound);
         }
-        
     }
-
 }
