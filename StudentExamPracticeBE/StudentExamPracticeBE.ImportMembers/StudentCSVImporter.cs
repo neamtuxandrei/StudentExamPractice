@@ -2,7 +2,7 @@
 using StudentExamPracticeBE.Abstractions;
 using StudentExamPracticeBE.Domain;
 
-namespace StudentExamPracticeBE.ImportMembers
+namespace StudentExamPracticeBE.CsvImporter
 {
     public class StudentsCSVImporter : IStudentImporter
     { 
