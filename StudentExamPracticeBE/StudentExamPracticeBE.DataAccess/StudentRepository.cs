@@ -30,26 +30,25 @@ namespace StudentExamPracticeBE.DataAccess
             _context.Students.Add(student);
         }
 
-        public async Task<Student?> GetStudentById(Guid id)
+        public Student? GetStudentById(Guid id)
         {
-            var student = await _context.Students.Include(task => task.Tasks)
-                .Where(i=> i.Id == id)
-                .FirstOrDefaultAsync();
+            var student = _context.Students.Include(task => task.Tasks)
+                .Where(i => i.Id == id)
+                .FirstOrDefault();
             return student;
         }
         public async Task<Student?> GetStudentByEmail(string email)
         {
             var student = await _context.Students.Include(task => task.Tasks)
-                .Where(e=> e.EmailAddress == email)
+                .Where(e => e.EmailAddress == email)
                 .FirstOrDefaultAsync();
             return student;
         }
 
         public void RemoveStudent(Student student)
         {
-           _context.Students.Remove(student);
+            _context.Students.Remove(student);
         }
-
         public void UpdateStudent(Student student)
         {
             _context.Update(student);

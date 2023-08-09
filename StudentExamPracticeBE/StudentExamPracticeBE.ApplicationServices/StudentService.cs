@@ -12,10 +12,13 @@ namespace StudentExamPracticeBE.ApplicationServices
             _studentRepository = studentRepository;
         }
 
-        public void DeleteStudent(Student student)
+        public async Task RemoveStudentById(Guid id)
         {
+            var student = _studentRepository.GetStudentById(id);
+            if (student == null) throw new Exception("Student not found");
+
             _studentRepository.RemoveStudent(student);
-            // log : deleted student with id: {id} 
+            await _studentRepository.SaveChangesAsync();
         }
 
         public async Task<bool> SaveChangesAsync()
@@ -29,9 +32,10 @@ namespace StudentExamPracticeBE.ApplicationServices
             return students;
         }
 
-        public async Task<Student?> GetStudentById(Guid id)
+        public Student GetStudentById(Guid id)
         {
-            var student = await _studentRepository.GetStudentById(id);
+            var student = _studentRepository.GetStudentById(id);
+            if (student == null) throw new Exception("Student not found");
             return student;
         }
         public async Task<Student?> GetStudentByEmail(string email)
@@ -40,17 +44,25 @@ namespace StudentExamPracticeBE.ApplicationServices
             return student;
         }
 
-        public void InsertStudent(string firstName, string lastName, string emailAddress, IEnumerable<ExamTask> tasks)
+        public async Task InsertStudent(string firstName, string lastName, string emailAddress)
         {
             if (_studentRepository.StudentExists(emailAddress))
                 throw new Exception("Student already exists");
             var studentToInsert = Student.Create(firstName, lastName, emailAddress);
-            foreach (var task in tasks)
-            {
-                studentToInsert.AddTask(task.Title, task.Description);
-            }
             _studentRepository.AddStudent(studentToInsert);
-            // log : inserted student with id ... 
+            await _studentRepository.SaveChangesAsync();
+        }
+
+        public async Task UpdateStudent(Guid id, string firstName, string lastName, string emailAddress)
+        {
+            var student = _studentRepository.GetStudentById(id);
+            if (student is null) throw new Exception("Student doesn't exists");
+
+            student.FirstName = firstName;
+            student.LastName = lastName;
+            student.EmailAddress = emailAddress;
+            _studentRepository.UpdateStudent(student);
+            await _studentRepository.SaveChangesAsync();
         }
     }
 }

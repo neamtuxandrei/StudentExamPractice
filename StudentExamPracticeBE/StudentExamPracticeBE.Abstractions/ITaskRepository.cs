@@ -15,15 +15,11 @@ namespace StudentExamPracticeBE.Abstractions
 
         void AddTask(ExamTask task);
 
-        Task<ExamTask?> GetTaskById(Guid id);
-
-        Task<ExamTask?> GetTaskByTitle(string title);
+        ExamTask? GetTaskById(Guid id);
 
         void RemoveTask(ExamTask task);
 
         void UpdateTask(ExamTask task);
-
-        bool TaskExists(string title);
 
     }
 }

@@ -33,9 +33,8 @@ namespace StudentExamPracticeBE.Domain
             task.Description = description;
             return task;
         }
-        public void AddStudent(string firstName, string lastName, string emailAddress)
+        public void AddStudent(Student student)
         {
-            var student = Student.Create(firstName, lastName, emailAddress);
             _students.Add(student);
         }
 

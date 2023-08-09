@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentExamPracticeBE.Abstractions;
+using StudentExamPracticeBE.Contracts.Students;
 using StudentExamPracticeBE.DataAccess;
 using StudentExamPracticeBE.Domain;
 using System.ComponentModel.DataAnnotations;
@@ -23,13 +24,13 @@ namespace StudentExamPracticeBE.Controllers
         [Route("{id}", Name = "GetStudentById")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<Student>> GetStudent(Guid id)
+        public ActionResult<Student> GetStudent(Guid id)
         {
             if (id == Guid.Empty)
                 return BadRequest();
             try
             {
-                var student = await _studentService.GetStudentById(id);
+                var student = _studentService.GetStudentById(id);
                 if (student == null)
                     return NotFound("Student not found.");
                 return Ok(student);
@@ -57,41 +58,50 @@ namespace StudentExamPracticeBE.Controllers
         }
         // [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public async Task<IActionResult> Insert([FromBody] Student studentToInsert)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Insert([FromBody] InsertStudentRequest request)
         {
-            if (studentToInsert is null)
+            if (request is null)
                 return BadRequest("Student is null");
-            _studentService.InsertStudent(studentToInsert.FirstName, studentToInsert.LastName,
-                 studentToInsert.EmailAddress, studentToInsert.Tasks);
-            await _studentService.SaveChangesAsync();
-            // a better way?
-            var student = await _studentService.GetStudentByEmail(studentToInsert.EmailAddress);
-            return CreatedAtRoute("GetStudentById", new { id = student.Id }, student);
-
+            await _studentService.InsertStudent(request.FirstName, request.LastName,
+                 request.EmailAddress);
+            return Ok();
         }
+
         //[Authorize(Roles = "Administrator")]
         [HttpDelete]
         [Route("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> RemoveStudent(Guid id)
         {
             if (id == Guid.Empty)
                 return BadRequest();
             try
             {
-                var student = await _studentService.GetStudentById(id);
-                if (student == null)
-                    return NotFound("Student not found.");
-                _studentService.DeleteStudent(student);
-                await _studentService.SaveChangesAsync();
+                await _studentService.RemoveStudentById(id);
                 return NoContent();
 
             }
             catch (Exception ex)
             {
                 return new ObjectResult(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("{id}", Name = "UpdateStudent")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> EditStudent(Guid id, [FromBody] UpdateStudentRequest request)
+        {
+            try
+            {
+                if (request is null) throw new ValidationException($"Request {typeof(UpdateStudentRequest)} is null");
+                await _studentService.UpdateStudent(id, request.FirstName, request.LastName, request.EmailAddress);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(ex);
             }
         }
     }
