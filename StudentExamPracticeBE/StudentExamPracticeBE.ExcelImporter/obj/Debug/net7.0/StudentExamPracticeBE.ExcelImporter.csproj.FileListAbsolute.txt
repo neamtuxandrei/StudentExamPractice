@@ -1,5 +1,0 @@
-F:\projects\softelligence\demoProjects\StudentExamPractice\StudentExamPracticeBE\StudentExamPracticeBE.ExcelImporter\obj\Debug\net7.0\StudentExamPracticeBE.ExcelImporter.csproj.AssemblyReference.cache
-F:\projects\softelligence\demoProjects\StudentExamPractice\StudentExamPracticeBE\StudentExamPracticeBE.ExcelImporter\obj\Debug\net7.0\StudentExamPracticeBE.ExcelImporter.GeneratedMSBuildEditorConfig.editorconfig
-F:\projects\softelligence\demoProjects\StudentExamPractice\StudentExamPracticeBE\StudentExamPracticeBE.ExcelImporter\obj\Debug\net7.0\StudentExamPracticeBE.ExcelImporter.AssemblyInfoInputs.cache
-F:\projects\softelligence\demoProjects\StudentExamPractice\StudentExamPracticeBE\StudentExamPracticeBE.ExcelImporter\obj\Debug\net7.0\StudentExamPracticeBE.ExcelImporter.AssemblyInfo.cs
-F:\projects\softelligence\demoProjects\StudentExamPractice\StudentExamPracticeBE\StudentExamPracticeBE.ExcelImporter\obj\Debug\net7.0\StudentExamPracticeBE.ExcelImporter.csproj.CoreCompileInputs.cache
