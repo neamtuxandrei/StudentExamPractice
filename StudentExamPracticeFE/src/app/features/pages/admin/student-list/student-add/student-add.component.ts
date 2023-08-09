@@ -25,7 +25,7 @@ export class StudentAddComponent {
   ){}
 
   addStudent(){
-    this.studentService.addStudent(this.student?.id, this.studentForm.value).subscribe(
+    this.studentService.addStudent(this.studentForm.value).subscribe(
       () => {
         this.router.navigate(["admin"]);
       }

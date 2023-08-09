@@ -29,7 +29,7 @@ export class StudentService {
     return this.http.put(this.url + "/student/" + id, values);
   }
 
-  addStudent(id: any, values: any){
-    return this.http.post(this.url + "/student/" + id, values);
+  addStudent(values: any){
+    return this.http.post(this.url + "/student/", values);
   }
 }
