@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Student } from 'src/app/shared/models/student';
 import { environment } from 'src/environments/environment';
 
@@ -8,13 +8,14 @@ import { environment } from 'src/environments/environment';
 })
 export class StudentService {
 
-  url = environment.baseUrl;
-  constructor(private http: HttpClient) {
-
+  // url = environment.baseUrl;
+  url =''
+  constructor(private http: HttpClient, @Inject('BASE_URL') url: string) {
+    this.url = url + 'api';
   }
 
   getStudents() {
-    return this.http.get<Student[]>(this.url + "/student");
+    return this.http.get<any>(this.url + "/student");
   }
 
   getStudent(id: string) {

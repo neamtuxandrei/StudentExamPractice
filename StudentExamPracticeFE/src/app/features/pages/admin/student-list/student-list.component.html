@@ -1,6 +1,6 @@
 <p-button label="Add Student" styleClass="p-button-sm p-button-success" routerLink="add"></p-button>
 <div class="my-2">
-    <p-table class="mb-3" [value]="students" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table class="mb-3" [value]="(studentsList | async)" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
                 <th>First Name</th>

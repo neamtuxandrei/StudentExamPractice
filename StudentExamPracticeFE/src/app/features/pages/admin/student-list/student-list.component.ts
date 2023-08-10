@@ -3,6 +3,7 @@ import { Student } from 'src/app/shared/models/student';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-student-list',
@@ -10,15 +11,19 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  students: Student[] = []
+  students: Student[] = [];
+  studentsList?: Observable<any>;
+
   constructor(
-    private studentService: StudentService,
+    public studentService: StudentService,
     private messageService: MessageService,
     private router: Router) {
+      
   }
 
   ngOnInit(): void {
-    this.getStudents();
+    // this.getStudents();
+    this.studentsList = this.studentService.getStudents();
   }
 
   getStudents() {

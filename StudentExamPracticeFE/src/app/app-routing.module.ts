@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-  { path: 'admin', loadChildren: () => import('./features/pages/admin/admin.module').then((m) => m.AdminModule), canActivate: [AdminGuard] }
+  { path: 'admin', loadChildren: () => import('./features/pages/admin/admin.module').then((m) => m.AdminModule), canActivate: [] }
 ]
 
 

@@ -17,6 +17,7 @@ import { FeaturesModule } from './features/features.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { StudentService } from './features/pages/admin/student.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MessageService } from 'primeng/api';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     MessageService,
+    StudentService
   ],
   bootstrap: [AppComponent]
 })
