@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/shared/models/student';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-student-list',
@@ -12,6 +13,7 @@ export class StudentListComponent implements OnInit {
   students: Student[] = []
   constructor(
     private studentService: StudentService,
+    private messageService: MessageService,
     private router: Router) {
   }
 
@@ -34,6 +36,7 @@ export class StudentListComponent implements OnInit {
         const currentRoute = this.router.url;
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigateByUrl(currentRoute);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User deleted succesfully.' });
         });
       }
     });

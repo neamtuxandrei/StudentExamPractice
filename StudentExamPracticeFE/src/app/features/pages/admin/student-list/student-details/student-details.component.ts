@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../../student.service';
 import { Student } from 'src/app/shared/models/student';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-student-details',
@@ -22,6 +23,7 @@ export class StudentDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private studentService: StudentService,
+    private messageService: MessageService,
     private router: Router
   ) {
   }
@@ -46,6 +48,7 @@ export class StudentDetailsComponent implements OnInit {
     this.studentService.editStudent(this.student?.id, this.studentForm.value).subscribe(
       () => {
         this.router.navigate(["admin"]);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Data saved successfully.' });
       }
     );
   }
